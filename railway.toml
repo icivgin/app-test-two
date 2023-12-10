@@ -1,0 +1,3 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd app && npm install && npx vite build && cd .. && npm i"
