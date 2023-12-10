@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div>
-      <p>{count ? count : 0}</p>
+      <p>This is the count: {count ? count : 0}</p>
     </div>
   )
 }
