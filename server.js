@@ -6,6 +6,7 @@ const cors = require("cors");
 require('dotenv').config();
 
 const routes = require("./routes/api");
+var postRouter = require("./routes/postRouter");
 
 const port = process.env.PORT || 3001;
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", routes);
+app.use('/api/', postRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, '/app/dist')));
