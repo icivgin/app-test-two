@@ -8,7 +8,13 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const db = {};
 
-let sequelize = new Sequelize(process.env.DATABASE_URL);
+let sequelize;
+
+if (process.env.NODE_ENV === "production") {
+  sequelize = new Sequelize(process.env.DATABASE_URL);
+} else {
+  sequelize = new Sequelize(process.env.DEV_DATABASE_URL);
+}
 
 fs
   .readdirSync(__dirname)
